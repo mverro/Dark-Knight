@@ -2,24 +2,25 @@
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  gap: 2px;
-  width: 400px;
-  height: 300px;
-  border: 1px solid #333;
+  justify-content: center;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  gap: 5px;
+  width: 500px;
+  height: 350px;
   position: relative;
 }
 
-.row {
-  display: flex;
-}
-
 .cell {
-  border: 1px solid #333;
+  /* border: 2px solid #333; */
+  border-radius: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-weight: bold;
+  background-image: url("../../assets/emptyZone.png");
+  background-size: cover;
 }
 
 .rock {
@@ -44,7 +45,7 @@
 
 .sidebar {
   margin-left: 20px;
-  border: 2px solid #333;
+  /* border: 2px solid #333; */
 }
 
 .score,
@@ -55,6 +56,8 @@
 
 .game-over {
   margin-top: 20px;
+  color: red;
+  font-weight: 900;
 }
 
 button {
@@ -67,4 +70,15 @@ button {
 
 button:hover {
   background-color: #555;
+}
+
+.next-block {
+  text-align: center;
+  font-weight: 900;
+}
+
+.next-block-preview {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
 }

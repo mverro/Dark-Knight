@@ -1,11 +1,11 @@
 import GameBoard from "./view/Board/Board";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Dark Knight</h1>
-      <GameBoard></GameBoard>
+    <div className="App d-flex flex-column align-items-center justify-content-center">
+      <h1 className="py-2">Dark Knight</h1>
+      <GameBoard />
     </div>
   );
 }

@@ -16,7 +16,7 @@ const GameBoard = () => {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(10);
-  
+
   const handleCellClick = (index) => {
     if (!cells[index].filled) {
       const newCells = [...cells];
@@ -58,24 +58,43 @@ const GameBoard = () => {
 
   return (
     <>
-      <div className="game-board">
-        {cells.map((cell, index) => (
-          <div
-            key={index}
-            className={`cell ${cell.filled ? cell.pattern : ""}`}
-            onClick={() => handleCellClick(index)}
-          ></div>
-        ))}
-      </div>
-      <div className="sidebar">
-        <div className="score">Score: {score}</div>
-        <div className="time-left">Time left: {timeLeft} seconds</div>
-        {gameOver && (
-          <div className="game-over">
-            Game Over!{" "}
-            <button onClick={() => window.location.reload()}>Retry</button>
+      <div className="container">
+        <div className="row d-flex flex-column align-items-center justify-content-center">
+          <div className="col-md-5">
+            <div className="game-board">
+              {cells.map((cell, index) => (
+                <div
+                  key={index}
+                  className={`cell ${cell.filled ? cell.pattern : ""}`}
+                  onClick={() => handleCellClick(index)}
+                ></div>
+              ))}
+            </div>
           </div>
-        )}
+          <div className="col-md-4">
+            <div className="sidebar">
+              <div className="container ">
+                <div className="next-block d-flex flex-column align-items-center justify-content-center">
+                  Next Block:
+                  <div
+                    className={`next-block-preview ${blockTypes[currentBlockIndex].pattern}`}
+                  ></div>
+                </div>
+              </div>
+
+              <div className="score">Score: {score}</div>
+              <div className="time-left">Time left: {timeLeft} seconds</div>
+              {gameOver && (
+                <div className="game-over">
+                  Game Over!{" "}
+                  <button onClick={() => window.location.reload()}>
+                    Retry
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
